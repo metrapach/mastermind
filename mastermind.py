@@ -26,17 +26,31 @@ def agregar_jugador():
         nombre = input("¡Hola, codebreaker! Dime tu nombre: ")                 
         lista_jugadores[nombre]=jugador
 
-def codigo_enigma():
-    for i  in range (4):
-        codigo=random.choice(colores)
-        print=(codigo)
+#generar de forma aleatoria una nueva lista CODEMAKER de 4 colores, basada en los 6 colores, 
+# para luego compararla con la lista del jugador CODEBREAKER
+def codigo_enigma(): 
+    codemaker=[]
+    for i in range (4):
+        color = random.choice(colores)
+        codemaker.append(color)
+        print (codemaker)
 
 def jugar():
-    input=print("Escoge una combinacion de 4 colores. Opciones: negro, blanco, rojo, amarillo, azul y verde")
-    color1=input("Color 1: ")
-    color2=input("Color 2: ")
-    color3=input("Color 3: ")
-    color4=input("Color 4: ")
+    codebreaker=[]
+    print("Escoge una combinacion de 4 colores.")
+    print("Opciones: negro, blanco, rojo, amarillo, azul y verde")
+    color1= input("Color 1: ")                  
+    codebreaker.append(color1)
+    color2 = input("Color 2: ")   
+    codebreaker.append(color2)
+    color3= input("Color 3: ")            
+    codebreaker.append(color3)
+    color4= input("Color 4: ")            
+    codebreaker.append(color4)
+    print("Tu combinación es: ", (codebreaker))
+
+def codemakerVRcodebreaker():
+    
 
 
 isRunning = True 
@@ -66,5 +80,5 @@ while isRunning:
         break
 
     else:
-        print("Esa opcion no es valida")
+        print("Esa opcion no es válida")
 
