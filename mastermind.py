@@ -42,7 +42,11 @@ def codigo_enigma():
 #def jugar: muestra al jugar las 6 opciones, solicita el ingreso de 4 colores e imprime
 def jugar():
     codebreaker=[]
-    print("Escoge una combinacion de 4 colores.")
+    jugador=[]
+    jugador = input("¡Hola, codebreaker! Dime tu nombre: ")        
+    #lista_jugadores[nombre]=jugador
+
+    print("Hey,", (jugador), ". Escoge una combinacion de 4 colores.")
     print("Opciones: negro, blanco, rojo, amarillo, azul y verde")
     color1= input("Color 1: ")                  
     codebreaker.append(color1)
@@ -52,7 +56,7 @@ def jugar():
     codebreaker.append(color3)
     color4= input("Color 4: ")            
     codebreaker.append(color4)
-    print("Tu combinación es: ", (codebreaker))
+    print("¡Suerte! Tu combinación es: ", (codebreaker))
 
 #def codemakerVRcodebreaker():
 
@@ -92,7 +96,7 @@ while isRunning:
         instrucciones ()
     
     elif opcion == "3":
-        print("Faltan datos para que corra la función)
+        print("Faltan datos para que corra la función")
     
     elif opcion == "4":
         print("Falta definir función")
