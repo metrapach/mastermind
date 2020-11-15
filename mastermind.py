@@ -1,5 +1,5 @@
 #Patricia Alfaro Chaves. Mastermind. Proyecto Progra1. U Cenfotec#
-#Hace cada funcion en solitario en el IDLE, para ir probando una a una#
+#Hice cada función en solitario en el IDLE, para ir probando de una a una#
 
 import random
 
@@ -17,36 +17,39 @@ puntajes={} #ir sumando el top10
 * "-" hay un elemento de la adivinanza que no esta en el código secreto. """
 
 def instrucciones():
-    print("Instrucciones:")
+    print("\n")
+    print("INSTRUCCIONES")
     print("Mastermind consiste en un juego de mesa de dos jugadores en el cual un jugador crea un código de 4 colores (codemaker) y")
     print("el otro jugador intenta adivinar este código (codebreaker) basado en pistas que el codemaker debe darle al code-breaker.")
-    print("Indicaciones:")
+    print("SIGNOS")
     print("[x] color y posición: correcta.")
     print("[o] color: correcto. Posición: incorrecta.")
     print("[-] hay un elemento de la adivinanza que no esta en el código secreto.")
 
-def agregar_jugador():     
+""" def agregar_jugador():     
         jugador=[]
         nombre = input("¡Hola, codebreaker! Dime tu nombre: ")                 
-        lista_jugadores[nombre]=jugador
+        lista_jugadores[nombre]=jugador """
 
 # def codigo_enigma(): generar de forma aleatoria una nueva lista CODEMAKER de 4 colores, basada en los 6 colores, 
 # para luego compararla con la lista del jugador CODEBREAKER
-def codigo_enigma(): 
+def codigo_enigma(colores): 
     codemaker=[]
-    for i in range (4):
-        color = random.choice(colores)
-        codemaker.append(color)
-        print (codemaker)
+        for i in range (4):
+            color = random.choice(colores)
+            codemaker.append(color)
+        return (codemaker)
+        print (codemaker) #se imprimer el código secreto, para la primera entrega
 
-#def jugar: muestra al jugar las 6 opciones, solicita el ingreso de 4 colores e imprime
+#def jugar: muestra al jugador (CODEBREAKER) las 6 opciones, le solicita el ingreso de 4 colores e imprime su selección
 def jugar():
     codebreaker=[]
     jugador=[]
     jugador = input("¡Hola, codebreaker! Dime tu nombre: ")        
     #lista_jugadores[nombre]=jugador
 
-    print("Hey,", (jugador), ". Escoge una combinacion de 4 colores.")
+    print("\n")
+    print("Hey,", (jugador), ". Escoge una combinación de 4 colores.")
     print("Opciones: negro, blanco, rojo, amarillo, azul y verde")
     color1= input("Color 1: ")                  
     codebreaker.append(color1)
@@ -57,6 +60,7 @@ def jugar():
     color4= input("Color 4: ")            
     codebreaker.append(color4)
     print("¡Suerte! Tu combinación es: ", (codebreaker))
+    print("Profe: acá seguiría la parte del juego donde se empieza a comparar el código secreto.")
 
 #def codemakerVRcodebreaker():
 
@@ -79,15 +83,15 @@ while isRunning:
     print("\n")   
     print("-- MASTERMIND --")
     print("[1] Iniciar el juego")
-    print("[2] Ver instrucciones del juego")                   # Print Menu
-    print("[3] Ver las mejores 10 puntuaciones")
+    print("[2] Instrucciones del juego")                   # imprimer el menú
+    print("[3] Top 10 de codebreakers")
     print("[4] Borrar puntuaciones")
     print("[5] Créditos")
     print("[6] Salir")
     print("- - - - - -")
     print("\n")   
 
-    opcion = input("Seleccione una opción del 1 al 6: ")       # Set "sel" to the output of input()
+    opcion = input("Seleccione una opción del 1 al 6: ")       # Set "opcion" to the output of input()
 
     if opcion == "1":
         jugar ()
@@ -108,5 +112,5 @@ while isRunning:
         isRunning = False
 
     else:
-        print("Esa opcion no es válida")
+        print("Esa opción no es válida")
 
