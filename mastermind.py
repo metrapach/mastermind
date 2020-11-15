@@ -30,7 +30,7 @@ def agregar_jugador():
         nombre = input("¡Hola, codebreaker! Dime tu nombre: ")                 
         lista_jugadores[nombre]=jugador
 
-#generar de forma aleatoria una nueva lista CODEMAKER de 4 colores, basada en los 6 colores, 
+# def codigo_enigma(): generar de forma aleatoria una nueva lista CODEMAKER de 4 colores, basada en los 6 colores, 
 # para luego compararla con la lista del jugador CODEBREAKER
 def codigo_enigma(): 
     codemaker=[]
@@ -39,6 +39,7 @@ def codigo_enigma():
         codemaker.append(color)
         print (codemaker)
 
+#def jugar: muestra al jugar las 6 opciones, solicita el ingreso de 4 colores e imprime
 def jugar():
     codebreaker=[]
     print("Escoge una combinacion de 4 colores.")
@@ -53,7 +54,7 @@ def jugar():
     codebreaker.append(color4)
     print("Tu combinación es: ", (codebreaker))
 
-def codemakerVRcodebreaker():
+#def codemakerVRcodebreaker():
 
 def puntuaciones(jugador):
     global puntajes
@@ -77,7 +78,7 @@ while isRunning:
     print("[2] Ver instrucciones del juego")                   # Print Menu
     print("[3] Ver las mejores 10 puntuaciones")
     print("[4] Borrar puntuaciones")
-    print("[5] Creditos")
+    print("[5] Créditos")
     print("[6] Salir")
     print("- - - - - -")
     print("\n")   
@@ -91,9 +92,16 @@ while isRunning:
         instrucciones ()
     
     elif opcion == "3":
-        puntuaciones(jugador):
-        print("Gracias por jugar!")
-        break
+        print("Faltan datos para que corra la función)
+    
+    elif opcion == "4":
+        print("Falta definir función")
+
+    elif opcion == "5":
+        print("Falta definir función")
+
+    elif opcion == "6":
+        isRunning = False
 
     else:
         print("Esa opcion no es válida")
