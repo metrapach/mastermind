@@ -1,4 +1,5 @@
 #Patricia Alfaro Chaves. Mastermind. Proyecto Progra1. U Cenfotec#
+#Hace cada funcion en solitario en el IDLE, para ir probando una a una#
 
 import random
 
@@ -6,6 +7,9 @@ colores=("Negro", "Blanco", "Rojo", "Amarillo", "Azul", "Verde")
 pista=["x", "o", "-"]
 lista_jugadores={}
 jugador=[]
+rondas=0 
+intentos=12 #puede jugar hasta 12 intentos
+puntajes={} #ir sumando el top10
 
 """
 *"x" color y posición: correcta.
@@ -50,8 +54,19 @@ def jugar():
     print("Tu combinación es: ", (codebreaker))
 
 def codemakerVRcodebreaker():
-    
 
+def puntuaciones(jugador):
+    global puntajes
+
+    jugador = str (jugador).upper()
+
+    if puntajes:  # el diccionario tiene datos
+        if jugador in puntajes:  # Encontró al jugador
+            puntajes[jugador] = sum(puntajes.values(),1)
+    else:
+        puntajes[jugador] = 1
+
+    print(puntajes)
 
 isRunning = True 
 
@@ -76,6 +91,7 @@ while isRunning:
         instrucciones ()
     
     elif opcion == "3":
+        puntuaciones(jugador):
         print("Gracias por jugar!")
         break
 
