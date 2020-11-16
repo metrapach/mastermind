@@ -1,4 +1,5 @@
 #Patricia Alfaro Chaves. Mastermind. Proyecto Progra1. U Cenfotec
+#Profe visite https://github.com/metrapach/mastermind para la wiki y demás detalles
 #Hice cada función en solitario en el IDLE, para ir probando de una a una
 
 import random
