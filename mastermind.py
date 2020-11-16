@@ -38,8 +38,7 @@ def codigo_enigma(colores):
         for i in range (4):
             color = random.choice(colores)
             codemaker.append(color)
-        return (codemaker)
-        print (codemaker) #se imprimer el código secreto, para la primera entrega
+        return codemaker
 
 #def jugar: muestra al jugador (CODEBREAKER) las 6 opciones, le solicita el ingreso de 4 colores e imprime su selección
 def jugar():
@@ -91,7 +90,7 @@ while isRunning:
     print("- - - - - -")
     print("\n")   
 
-    opcion = input("Seleccione una opción del 1 al 6: ")       # Set "opcion" to the output of input()
+    opcion = input("Seleccione una opción del 1 al 6: ")       # Seleccion "opcion" conforme a la funcion o input asignado
 
     if opcion == "1":
         jugar ()
