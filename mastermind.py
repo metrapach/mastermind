@@ -1,9 +1,9 @@
-#Patricia Alfaro Chaves. Mastermind. Proyecto Progra1. U Cenfotec#
-#Hice cada función en solitario en el IDLE, para ir probando de una a una#
+#Patricia Alfaro Chaves. Mastermind. Proyecto Progra1. U Cenfotec
+#Hice cada función en solitario en el IDLE, para ir probando de una a una
 
 import random
 
-colores=("Negro", "Blanco", "Rojo", "Amarillo", "Azul", "Verde")
+colores=("Negro", "Blanco", "Rojo", "Amarillo", "Azul", "Verde") #tupla de colores
 pista=["x", "o", "-"]
 lista_jugadores={}
 jugador=[]
