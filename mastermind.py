@@ -36,10 +36,10 @@ def instrucciones():
 # para luego compararla con la lista del jugador CODEBREAKER
 def codigo_enigma(colores): 
     codemaker=[]
-        for i in range (4):
-            color = random.choice(colores)
-            codemaker.append(color)
-        return codemaker
+    for i in range (4):
+        color = random.choice(colores)
+        codemaker.append(color)
+    return codemaker
 
 #def jugar: muestra al jugador (CODEBREAKER) las 6 opciones, le solicita el ingreso de 4 colores e imprime su selección
 def jugar():
@@ -64,18 +64,17 @@ def jugar():
 
 #def codemakerVRcodebreaker():
 
-def puntuaciones(jugador):
-    global puntajes
-
+def puntuaciones(puntajes,jugador):
     jugador = str (jugador).upper()
 
-    if puntajes:  # el diccionario tiene datos
-        if jugador in puntajes:  # Encontró al jugador
-            puntajes[jugador] = sum(puntajes.values(),1)
+    if jugador in puntajes:  # Encontró al jugador
+        puntajes[jugador] = puntajes[jugador]+1
     else:
         puntajes[jugador] = 1
 
     print(puntajes)
+#lista de diccionarios. Un diccionario por cada jugador.
+
 
 isRunning = True 
 
