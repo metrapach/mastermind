@@ -3,6 +3,7 @@
 #Hice cada función en solitario en el IDLE, para ir probando de una a una
 
 import random
+import pickle
 
 colores=("Negro", "Blanco", "Rojo", "Amarillo", "Azul", "Verde") #tupla de colores
 pista=["x", "o", "-"]
@@ -11,6 +12,7 @@ jugador=[]
 rondas=0 
 intentos=12 #puede jugar hasta 12 intentos
 puntajes={} #ir sumando el top10
+codebreaker=[]
 
 """
 *"x" color y posición: correcta.
@@ -27,6 +29,10 @@ def instrucciones():
     print("[o] color: correcto. Posición: incorrecta.")
     print("[-] hay un elemento de la adivinanza que no esta en el código secreto.")
 
+def creditos():
+    print("CRÉDITOS")
+    print("Patricia Alfaro Chaves. Proyecto final: MasterMind. Profesor: Andrés Morales. U CENFOTEC 2020")
+
 """ def agregar_jugador():     
         jugador=[]
         nombre = input("¡Hola, codebreaker! Dime tu nombre: ")                 
@@ -42,12 +48,10 @@ def codigo_enigma(colores):
     return codemaker
 
 #def jugar: muestra al jugador (CODEBREAKER) las 6 opciones, le solicita el ingreso de 4 colores e imprime su selección
-def jugar():
-    codebreaker=[]
+def generar_codebreaker():
     jugador=[]
     jugador = input("¡Hola, codebreaker! Dime tu nombre: ")        
     #lista_jugadores[nombre]=jugador
-
     print("\n")
     print("Hey,", (jugador), ". Escoge una combinación de 4 colores.")
     print("Opciones: negro, blanco, rojo, amarillo, azul y verde")
@@ -60,9 +64,18 @@ def jugar():
     color4= input("Color 4: ")            
     codebreaker.append(color4)
     print("¡Suerte! Tu combinación es: ", (codebreaker))
-    print("Profe: acá seguiría la parte del juego donde se empieza a comparar el código secreto.")
 
-#def codemakerVRcodebreaker():
+
+def comparar_codigos():
+    pistas = []
+    codigo_bot = codigo_enigma()
+    codigo_jugador = codebreaker
+    for i in rage ():
+        if codigo_jugador[0] == codigo_bot[0]:
+            print ("El cod jugador = cod enigma")
+            append
+
+
 
 def puntuaciones(puntajes,jugador):
     jugador = str (jugador).upper()
@@ -87,7 +100,6 @@ while isRunning:
     print("[4] Borrar puntuaciones")
     print("[5] Créditos")
     print("[6] Salir")
-    print("- - - - - -")
     print("\n")   
 
     opcion = input("Seleccione una opción del 1 al 6: ")       # Seleccion "opcion" conforme a la funcion o input asignado
@@ -105,7 +117,7 @@ while isRunning:
         print("Falta definir función")
 
     elif opcion == "5":
-        print("Falta definir función")
+        creditos ()
 
     elif opcion == "6":
         isRunning = False

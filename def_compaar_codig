@@ -1,0 +1,23 @@
+codebreaker=[1, 1, 666, "negro"]
+codemaker=[1, 666, 5, "negro"]
+
+def comparar_codigos():
+    codigo_bot = codebreaker
+    codigo_jugador = codemaker
+    #centinela
+    for i in range(4):
+        #print ("vuelta", (i))
+        if codigo_jugador[i] == codigo_bot[i]:
+            print ("Rx")
+        else: 
+            for j in range(4):
+                if codigo_jugador[i] == codigo_bot[j]:
+                    print ("W-")
+    else:
+        print ("NEo")
+
+  
+
+comparar_codigos()
+
+
