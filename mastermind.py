@@ -5,7 +5,7 @@
 import random
 import pickle
 
-colores=("Negro", "Blanco", "Rojo", "Amarillo", "Azul", "Verde") #tupla de colores
+colores=("negro", "blanco", "rojo", "amarillo", "azul", "verde") #tupla de colores
 pista=["x", "o", "-"]
 lista_jugadores={}
 jugador=[]
@@ -13,11 +13,8 @@ rondas=0
 intentos=12 #puede jugar hasta 12 intentos
 puntajes={} #ir sumando el top10
 codebreaker=[]
+codemaker=[]
 
-"""
-*"x" color y posición: correcta.
-* "o" color: correcto. Posición: incorrecta.
-* "-" hay un elemento de la adivinanza que no esta en el código secreto. """
 
 def instrucciones():
     print("\n")
@@ -67,14 +64,19 @@ def generar_codebreaker():
 
 
 def comparar_codigos():
-    pistas = []
-    codigo_bot = codigo_enigma()
-    codigo_jugador = codebreaker
-    for i in rage ():
-        if codigo_jugador[0] == codigo_bot[0]:
-            print ("El cod jugador = cod enigma")
-            append
+    codigo_bot = codebreaker
+    codigo_jugador = codemaker
+    feedback=[]
 
+    for i in range(4):
+        if codigo_jugador[i] == codigo_bot[i]:
+            feedback.append("x")
+        else:
+            if codigo_jugador[i] in codigo_bot:
+                feedback.append("-")
+            else:
+                feedback.append("o")
+    return feedback
 
 
 def puntuaciones(puntajes,jugador):
@@ -87,6 +89,8 @@ def puntuaciones(puntajes,jugador):
 
     print(puntajes)
 #lista de diccionarios. Un diccionario por cada jugador.
+
+def guardar_puntuaciones
 
 
 isRunning = True 
@@ -105,7 +109,9 @@ while isRunning:
     opcion = input("Seleccione una opción del 1 al 6: ")       # Seleccion "opcion" conforme a la funcion o input asignado
 
     if opcion == "1":
-        jugar ()
+        codigo_enigma(colores)
+        generar_codebreaker ()
+        comparar_codigos()
         
     elif opcion == "2":
         instrucciones ()
