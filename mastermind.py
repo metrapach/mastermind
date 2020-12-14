@@ -12,10 +12,10 @@ jugador=[]
 rondas=0 
 intentos=12 #puede jugar hasta 12 intentos
 puntajes={} #ir sumando el top10
-codebreaker=[]
-codemaker=[]
+codigo_bot=[]
+codigo_jugador=[]
 
-
+#cargar archivo de pickle. cargar en en puntuajes 
 def instrucciones():
     print("\n")
     print("INSTRUCCIONES")
@@ -30,19 +30,20 @@ def creditos():
     print("CRÉDITOS")
     print("Patricia Alfaro Chaves. Proyecto final: MasterMind. Profesor: Andrés Morales. U CENFOTEC 2020")
 
-""" def agregar_jugador():     
+def agregar_jugador():     
         jugador=[]
         nombre = input("¡Hola, codebreaker! Dime tu nombre: ")                 
-        lista_jugadores[nombre]=jugador """
+        lista_jugadores[nombre]=jugador
+        return jugador
 
 # def codigo_enigma(): generar de forma aleatoria una nueva lista CODEMAKER de 4 colores, basada en los 6 colores, 
 # para luego compararla con la lista del jugador CODEBREAKER
 def codigo_enigma(colores): 
-    codemaker=[]
+    #codemaker=[]
     for i in range (4):
         color = random.choice(colores)
-        codemaker.append(color)
-    return codemaker
+        codigo_bot.append(color)
+    #return codemaker
 
 #def jugar: muestra al jugador (CODEBREAKER) las 6 opciones, le solicita el ingreso de 4 colores e imprime su selección
 def generar_codebreaker():
@@ -53,21 +54,17 @@ def generar_codebreaker():
     print("Hey,", (jugador), ". Escoge una combinación de 4 colores.")
     print("Opciones: negro, blanco, rojo, amarillo, azul y verde")
     color1= input("Color 1: ")                  
-    codebreaker.append(color1)
+    codigo_jugador.append(color1)
     color2 = input("Color 2: ")   
-    codebreaker.append(color2)
+    codigo_jugador.append(color2)
     color3= input("Color 3: ")            
-    codebreaker.append(color3)
+    codigo_jugador.append(color3)
     color4= input("Color 4: ")            
-    codebreaker.append(color4)
-    print("¡Suerte! Tu combinación es: ", (codebreaker))
-
+    codigo_jugador.append(color4)
+    print("¡Suerte! Tu combinación es: ", (codigo_jugador))
 
 def comparar_codigos():
-    codigo_bot = codebreaker
-    codigo_jugador = codemaker
     feedback=[]
-
     for i in range(4):
         if codigo_jugador[i] == codigo_bot[i]:
             feedback.append("x")
@@ -76,8 +73,13 @@ def comparar_codigos():
                 feedback.append("-")
             else:
                 feedback.append("o")
-    return feedback
+    print (feedback)
 
+
+def jugar():
+    codigo_enigma(colores)
+    generar_codebreaker()
+    comparar_codigos()
 
 def puntuaciones(puntajes,jugador):
     jugador = str (jugador).upper()
@@ -90,12 +92,15 @@ def puntuaciones(puntajes,jugador):
     print(puntajes)
 #lista de diccionarios. Un diccionario por cada jugador.
 
-def guardar_puntuaciones
+#def guardar_puntuaciones(): #top10
+
+#guardar archivo pickle 
+
 
 
 isRunning = True 
-
 while isRunning:
+
     print("\n")   
     print("-- MASTERMIND --")
     print("[1] Iniciar el juego")
@@ -109,10 +114,8 @@ while isRunning:
     opcion = input("Seleccione una opción del 1 al 6: ")       # Seleccion "opcion" conforme a la funcion o input asignado
 
     if opcion == "1":
-        codigo_enigma(colores)
-        generar_codebreaker ()
-        comparar_codigos()
-        
+        jugar()
+
     elif opcion == "2":
         instrucciones ()
     
