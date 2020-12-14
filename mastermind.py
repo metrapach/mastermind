@@ -47,12 +47,9 @@ def codigo_enigma(colores):
 
 #def jugar: muestra al jugador (CODEBREAKER) las 6 opciones, le solicita el ingreso de 4 colores e imprime su selección
 def generar_codebreaker():
-    jugador=[]
-    jugador = input("¡Hola, codebreaker! Dime tu nombre: ")        
-    #lista_jugadores[nombre]=jugador
-    print("\n")
-    print("Hey,", (jugador), ". Escoge una combinación de 4 colores.")
+    input("¡Hola, codebreaker! Escoge una combinación de 4 colores.")
     print("Opciones: negro, blanco, rojo, amarillo, azul y verde")
+    codigo_jugador.clear()
     color1= input("Color 1: ")                  
     codigo_jugador.append(color1)
     color2 = input("Color 2: ")   
@@ -77,7 +74,6 @@ def comparar_codigos():
 
 
 def jugar():
-    codigo_enigma(colores)
     generar_codebreaker()
     comparar_codigos()
 
@@ -96,12 +92,16 @@ def puntuaciones(puntajes,jugador):
 
 #guardar archivo pickle 
 
+"""inicia juego"""
+codigo_enigma(colores)
+agregar_jugador()
+#genere codigo enigma
+while rondas < intentos:  #loop_juego
+    jugar ()
 
 
-isRunning = True 
-while isRunning:
 
-    print("\n")   
+"""     print("\n")   
     print("-- MASTERMIND --")
     print("[1] Iniciar el juego")
     print("[2] Instrucciones del juego")                   # imprimer el menú
@@ -132,5 +132,5 @@ while isRunning:
         isRunning = False
 
     else:
-        print("Esa opción no es válida")
+        print("Esa opción no es válida") """
 
