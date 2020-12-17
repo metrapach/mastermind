@@ -11,7 +11,7 @@ class Persona:
         return self.nombre
 
 # Creamos la lista con los objetos
-nombres = ["Héctor","Mario","Marta"]
+nombres = ["Héctor","Mario","Marta", "Patri"]
 personas = []
 
 for n in nombres:

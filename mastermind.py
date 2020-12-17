@@ -47,8 +47,8 @@ def codigo_enigma(colores):
 
 #def jugar: muestra al jugador (CODEBREAKER) las 6 opciones, le solicita el ingreso de 4 colores e imprime su selección
 def generar_codebreaker():
-    input("¡Hola, codebreaker! Escoge una combinación de 4 colores.")
-    print("Opciones: negro, blanco, rojo, amarillo, azul y verde")
+    input("¡Hola, codebreaker! Escoge una combinación de 4 colores.[ENTER]")
+    print("Opciones: negro, blanco, rojo, amarillo, azul y verde. [ENTER]")
     codigo_jugador.clear()
     color1= input("Color 1: ")                  
     codigo_jugador.append(color1)
@@ -67,10 +67,10 @@ def comparar_codigos():
             feedback.append("x")
         else:
             if codigo_jugador[i] in codigo_bot:
-                feedback.append("-")
-            else:
                 feedback.append("o")
-    print (feedback)
+            else:
+                feedback.append("_")
+    print ("Te tengo una pista: ", (feedback))
 
 
 def jugar():
@@ -85,7 +85,7 @@ def puntuaciones(puntajes,jugador):
     else:
         puntajes[jugador] = 1
 
-    print(puntajes)
+    print (puntajes)
 #lista de diccionarios. Un diccionario por cada jugador.
 
 #def guardar_puntuaciones(): #top10
@@ -98,6 +98,13 @@ agregar_jugador()
 #genere codigo enigma
 while rondas < intentos:  #loop_juego
     jugar ()
+    if codigo_jugador != codigo_bot:
+        rondas = rondas + 1
+        print ('Vamos... inténtalo de nuevo', "Llevas", (rondas), "intentos de 12")
+    else:
+        print ('¡Felicidades, descrubriste el código enigma!')
+        break 
+    
 
 
 
