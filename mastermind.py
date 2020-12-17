@@ -7,11 +7,10 @@ import pickle
 
 colores=("negro", "blanco", "rojo", "amarillo", "azul", "verde") #tupla de colores
 pista=["x", "o", "-"]
-lista_jugadores={}
+puntajes={}
 jugador=[]
 rondas=0 
 intentos=12 #puede jugar hasta 12 intentos
-puntajes={} #ir sumando el top10
 codigo_bot=[]
 codigo_jugador=[]
 
@@ -31,13 +30,17 @@ def creditos():
     print("Patricia Alfaro Chaves. Proyecto final: MasterMind. Profesor: Andrés Morales. U CENFOTEC 2020")
 
 def agregar_jugador():     
-        jugador=[]
-        nombre = input("¡Hola, codebreaker! Dime tu nombre: ")                 
-        lista_jugadores[nombre]=jugador
-        return jugador
+    nombre = input("¡Hola, codebreaker! Dime tu nombre: ")                 
+    
+    if nombre in puntajes:  # Encontró al jugador
+        print ("Jugador existe")
+    else:
+        puntajes[nombre]=0
+    print (puntajes)
+    
+    return nombre
 
 # def codigo_enigma(): generar de forma aleatoria una nueva lista CODEMAKER de 4 colores, basada en los 6 colores, 
-# para luego compararla con la lista del jugador CODEBREAKER
 def codigo_enigma(colores): 
     #codemaker=[]
     for i in range (4):
@@ -47,7 +50,7 @@ def codigo_enigma(colores):
 
 #def jugar: muestra al jugador (CODEBREAKER) las 6 opciones, le solicita el ingreso de 4 colores e imprime su selección
 def generar_codebreaker():
-    input("¡Hola, codebreaker! Escoge una combinación de 4 colores.[ENTER]")
+    input("Escoge una combinación de 4 colores.[ENTER]")
     print("Opciones: negro, blanco, rojo, amarillo, azul y verde. [ENTER]")
     codigo_jugador.clear()
     color1= input("Color 1: ")                  
@@ -72,25 +75,23 @@ def comparar_codigos():
                 feedback.append("_")
     print ("Te tengo una pista: ", (feedback))
 
-
 def jugar():
     generar_codebreaker()
     comparar_codigos()
 
-def puntuaciones(puntajes,jugador):
-    jugador = str (jugador).upper()
-
-    if jugador in puntajes:  # Encontró al jugador
-        puntajes[jugador] = puntajes[jugador]+1
+def puntuaciones(nombre):
+    if nombre in puntajes:  # Encontró al jugador
+        puntajes[nombre] = puntajes[nombre]+1
     else:
-        puntajes[jugador] = 1
+        puntajes[nombre] = 1
+    print("La lista de puntajes actual es", (puntajes))
 
-    print (puntajes)
+nombre_jugador = agregar_jugador()
+puntuaciones(nombre_jugador)
 #lista de diccionarios. Un diccionario por cada jugador.
 
 #def guardar_puntuaciones(): #top10
 
-#guardar archivo pickle 
 
 """inicia juego"""
 codigo_enigma(colores)
@@ -100,13 +101,13 @@ while rondas < intentos:  #loop_juego
     jugar ()
     if codigo_jugador != codigo_bot:
         rondas = rondas + 1
-        print ('Vamos... inténtalo de nuevo', "Llevas", (rondas), "intentos de 12")
+        print ("Vamos... inténtalo de nuevo.", "Llevas", (rondas), "intentos de 12.")
     else:
-        print ('¡Felicidades, descrubriste el código enigma!')
+        print ("¡Felicidades, descrubriste el código enigma!")
         break 
     
 
-
+#guardar archivo pickle 
 
 """     print("\n")   
     print("-- MASTERMIND --")
